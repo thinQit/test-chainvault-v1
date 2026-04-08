@@ -35,7 +35,6 @@
     "sonner": "1.7.4",
     "mini-svg-data-uri": "1.4.4",
     "zod": "3.24.1",
-    ", value: ": "*",
     "simplex-noise": "*"
   },
   "devDependencies": {

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: "IBM Plex Sans";
+  --font-body: "Source Sans Pro";
+
+  --background: 220 44% 5%;
+  --foreground: 216 100% 96%;
+
+  --card: 218 48% 8%;
+  --card-foreground: 216 100% 96%;
+
+  --popover: 218 48% 8%;
+  --popover-foreground: 216 100% 96%;
+
+  --primary: 212 100% 27%;
+  --primary-foreground: 217 100% 96%;
+
+  --secondary: 216 65% 12%;
+  --secondary-foreground: 216 100% 92%;
+
+  --muted: 218 47% 10%;
+  --muted-foreground: 217 45% 72%;
+
+  --accent: 33 53% 64%;
+  --accent-foreground: 0 0% 4%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 216 45% 18%;
+  --input: 216 45% 18%;
+  --ring: 211 61% 43%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), sans-serif;
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.3); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+
+@keyframes pageEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+main { animation: pageEnter 0.3s ease-out; }
+
+::selection { background: hsl(var(--primary) / 0.2); color: hsl(var(--foreground)); }
+
+@layer base { * { border-color: hsl(var(--border)); } body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); } }
